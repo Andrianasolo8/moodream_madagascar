@@ -11,11 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #d4a373;
-            --secondary-color: #fefae0;
-            --dark-color: #333;
+            --primary-color: #293949;
+            --secondary-color: #f8f9fa;
+            --dark-color: #2c3e50;
             --light-color: #fafafa;
-            --accent-color: #ccd5ae;
+            --accent-color: #3498db;
             --madagascar-red: #FC3D32;
             --madagascar-green: #007E39;
             --madagascar-white: #FFFFFF;
@@ -46,7 +46,7 @@
 
         /* HERO ÉLÉGANT POUR MARIAGE */
         .hero {
-            background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.4)), 
+            background: linear-gradient(rgba(41, 57, 73, 0.7), rgba(41, 57, 73, 0.8)), 
                         url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
             height: 100vh;
             display: flex;
@@ -64,7 +64,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(212, 163, 115, 0.2));
+            background: linear-gradient(45deg, rgba(41, 57, 73, 0.3), rgba(212, 175, 55, 0.2));
             z-index: 1;
         }
 
@@ -100,7 +100,7 @@
 
         .btn-zoom {
             transition: all 0.4s ease;
-            background: linear-gradient(45deg, var(--gold), var(--primary-color));
+            background: linear-gradient(45deg, var(--primary-color), var(--gold));
             border: none;
             padding: 15px 40px;
             font-size: 1.1rem;
@@ -170,7 +170,7 @@
             margin-bottom: 30px;
             position: relative;
             padding-bottom: 15px;
-            color: var(--dark-color);
+            color: var(--primary-color);
         }
 
         .section-title::after {
@@ -178,7 +178,7 @@
             position: absolute;
             width: 80px;
             height: 3px;
-            background: linear-gradient(45deg, var(--gold), var(--primary-color));
+            background: linear-gradient(45deg, var(--primary-color), var(--gold));
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
@@ -194,7 +194,7 @@
             height: 100%;
             border: none;
             margin-bottom: 30px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(41, 57, 73, 0.1);
         }
 
         .pack-card:hover {
@@ -232,7 +232,7 @@
 
         .pack-card ul li::before {
             content: '✓';
-            color: var(--gold);
+            color: var(--primary-color);
             font-weight: bold;
             position: absolute;
             left: -20px;
@@ -247,7 +247,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.06);
             transition: transform 0.3s ease;
             height: 100%;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(41, 57, 73, 0.1);
             text-align: center;
         }
 
@@ -258,7 +258,7 @@
 
         .element-icon {
             font-size: 3rem;
-            color: var(--gold);
+            color: var(--primary-color);
             margin-bottom: 20px;
             display: block;
         }
@@ -298,7 +298,7 @@
         }
 
         .nav-link:hover {
-            color: var(--gold) !important;
+            color: var(--primary-color) !important;
         }
 
         .nav-link::after {
@@ -308,7 +308,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background: linear-gradient(45deg, var(--gold), var(--primary-color));
+            background: linear-gradient(45deg, var(--primary-color), var(--gold));
             transition: width 0.3s ease;
         }
 
@@ -328,7 +328,7 @@
             box-shadow: 0 5px 25px rgba(0,0,0,0.2);
             text-align: center;
             max-width: 180px;
-            border: 2px solid var(--gold);
+            border: 2px solid var(--primary-color);
         }
 
         .qr-code {
@@ -344,7 +344,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, var(--gold), var(--primary-color));
+            background: linear-gradient(45deg, var(--primary-color), #2c3e50);
             border: none;
             transition: all 0.3s ease;
             font-weight: 500;
@@ -352,7 +352,7 @@
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 20px rgba(41, 57, 73, 0.3);
         }
 
         button {
@@ -360,7 +360,7 @@
         }
 
         footer {
-            background: #111;
+            background: var(--primary-color);
             color: #fff;
             padding: 40px 0;
             text-align: center;
@@ -374,8 +374,8 @@
         }
 
         form .form-control:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(41, 57, 73, 0.1);
         }
 
         .madagascar-flag {
@@ -473,14 +473,20 @@
 
 <body>
 
-
+    <!-- QR Code pour la soutenance -->
+    <div class="qr-code-container fade-in">
+        <div class="qr-code" id="qrCode">
+            <!-- Le QR code sera généré ici -->
+        </div>
+        <div class="qr-text">Scannez pour visiter le site</div>
+    </div>
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-                <div class="logo-placeholder bg-gold rounded-circle d-flex align-items-center justify-content-center me-2" 
-                     style="width: 45px; height: 45px; background: linear-gradient(45deg, var(--gold), var(--primary-color)) !important;">
+                <div class="logo-placeholder rounded-circle d-flex align-items-center justify-content-center me-2" 
+                     style="width: 45px; height: 45px; background: linear-gradient(45deg, var(--primary-color), #2c3e50) !important;">
                     <span class="text-white fw-bold" style="font-family: 'Playfair Display', serif;">M</span>
                 </div>
                 <span>MOODREAM</span>
