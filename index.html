@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moodream Madagascar – Wedding & Event Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d4a373;
+            --secondary-color: #fefae0;
+            --dark-color: #333;
+            --light-color: #fafafa;
+            --accent-color: #ccd5ae;
+            --madagascar-red: #FC3D32;
+            --madagascar-green: #007E39;
+            --madagascar-white: #FFFFFF;
+            --gold: #d4af37;
+            --ivory: #fffff0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light-color);
+            color: var(--dark-color);
+            scroll-behavior: smooth;
+            padding-top: 76px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards ease-out;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HERO ÉLÉGANT POUR MARIAGE */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.4)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: -76px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(212, 163, 115, 0.2));
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            animation: fadeIn 1.3s ease-out forwards;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            margin-bottom: 1.5rem;
+            color: var(--ivory);
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            animation: fadeIn 1.8s ease-out forwards;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .hero a {
+            animation: fadeIn 2.2s ease-out forwards;
+        }
+
+        .btn-zoom {
+            transition: all 0.4s ease;
+            background: linear-gradient(45deg, var(--gold), var(--primary-color));
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-zoom:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+        }
+
+        .location-badge {
+            background: linear-gradient(45deg, var(--madagascar-white), var(--madagascar-red), var(--madagascar-green));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out forwards;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            letter-spacing: 0.5px;
+        }
+
+        /* ÉLÉMENTS DÉCORATIFS ÉLÉGANTS */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.8;
+            animation: float 8s ease-in-out infinite;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .floating-element:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 65%; left: 88%; animation-delay: 2s; }
+        .floating-element:nth-child(3) { top: 85%; left: 12%; animation-delay: 4s; }
+        .floating-element:nth-child(4) { top: 25%; left: 85%; animation-delay: 6s; }
+        .floating-element:nth-child(5) { top: 75%; left: 18%; animation-delay: 8s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-15px) rotate(5deg) scale(1.05); }
+        }
+
+        /* Styles pour les sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--gold), var(--primary-color));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Styles pour les cartes de packs */
+        .pack-card {
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 8px 30px rgba(0,0,0,.08);
+            transition: .4s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .pack-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,.15);
+        }
+
+        .pack-card img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .pack-card .card-body {
+            padding: 30px 25px;
+        }
+
+        .pack-card .card-title {
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .pack-card ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .pack-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .pack-card ul li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        /* Styles pour les éléments */
+        .element-card {
+            border-radius: 15px;
+            padding: 30px 25px;
+            margin-bottom: 25px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            text-align: center;
+        }
+
+        .element-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .element-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Styles pour la navbar */
+        .navbar {
+            padding: 15px 0;
+            transition: 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,.1);
+            background: rgba(255,255,255,0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0,0,0,.1);
+            background: rgba(255,255,255,0.98) !important;
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .navbar-brand .logo {
+            width: 50px;
+            height: auto;
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            position: relative;
+            margin: 0 12px;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--gold) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(45deg, var(--gold), var(--primary-color));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Styles pour le QR Code */
+        .qr-code-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 180px;
+            border: 2px solid var(--gold);
+        }
+
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+
+        .qr-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--gold), var(--primary-color));
+            border: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        button {
+            border-radius: 12px;
+        }
+
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        form .form-control {
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        form .form-control:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .madagascar-flag {
+            display: inline-flex;
+            height: 20px;
+            width: 30px;
+            margin-left: 10px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .madagascar-flag .white {
+            background: white;
+            width: 50%;
+        }
+        .madagascar-flag .red {
+            background: #FC3D32;
+            width: 50%;
+        }
+        .madagascar-flag .green {
+            background: #007E39;
+            width: 100%;
+            height: 50%;
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 80vh;
+                text-align: center;
+                padding: 40px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .floating-element {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .qr-code-container {
+                bottom: 10px;
+                right: 10px;
+                max-width: 140px;
+            }
+            
+            .qr-code {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn-zoom {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            .qr-code-container {
+                max-width: 120px;
+                padding: 10px;
+            }
+            
+            .qr-code {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .qr-text {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- QR Code pour la soutenance -->
+    <div class="qr-code-container fade-in">
+        <div class="qr-code" id="qrCode">
+            <!-- Le QR code sera généré ici -->
+        </div>
+        <div class="qr-text">Scannez pour visiter le site</div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <div class="logo-placeholder bg-gold rounded-circle d-flex align-items-center justify-content-center me-2" 
+                     style="width: 45px; height: 45px; background: linear-gradient(45deg, var(--gold), var(--primary-color)) !important;">
+                    <span class="text-white fw-bold" style="font-family: 'Playfair Display', serif;">M</span>
+                </div>
+                <span>MOODREAM</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#packs">Packs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#elements">Éléments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO ÉLÉGANT -->
+    <section class="hero fade-in">
+        <div class="floating-elements">
+            <div class="floating-element">💍</div>
+            <div class="floating-element">✨</div>
+            <div class="floating-element">🌟</div>
+            <div class="floating-element">🥂</div>
+            <div class="floating-element">🌸</div>
+        </div>
+        
+        <div class="container text-center">
+            <div class="location-badge">
+                <i class="fas fa-map-marker-alt me-2"></i>Madagascar
+            </div>
+            <h1>L'élégance au service de vos plus beaux moments</h1>
+            <p class="mt-3">Mariages d'exception, célébrations raffinées, événements prestigieux — nous créons des expériences uniques qui marquent les esprits.</p>
+            <a href="#packs" class="btn btn-light mt-3 px-4 py-2 fw-bold btn-zoom">
+                <i class="fas fa-gem me-2"></i>Découvrir nos prestations
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container py-5">
+        <h2 class="text-center section-title">À propos de Moodream Madagascar</h2>
+        <p class="text-center w-75 mx-auto">
+            Moodream Madagascar transforme vos souhaits en réalité grâce à une équipe passionnée, créative et spécialisée dans 
+            l'organisation d'événements haut de gamme. Nous mettons notre expertise au service de votre histoire pour créer 
+            des moments uniques et mémorables, en harmonie avec la beauté naturelle de Madagascar.
+        </p>
+        <div class="row mt-5">
+            <div class="col-md-4 text-center mb-4">
+                <i class="fas fa-gem fa-2x mb-3" style="color: var(--gold);"></i>
+                <h5>Élégance Malgache</h5>
+                <p>Nous créons des événements raffinés qui marient élégance internationale et authenticité malgache.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <i class="fas fa-lightbulb fa-2x mb-3" style="color: var(--gold);"></i>
+                <h5>Créativité Locale</h5>
+                <p>Notre équipe imaginative intègre l'artisanat et la culture malgache dans des concepts uniques.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <i class="fas fa-handshake fa-2x mb-3" style="color: var(--gold);"></i>
+                <h5>Expertise Territoriale</h5>
+                <p>Notre connaissance du terrain nous permet d'organiser des événements dans tout Madagascar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKS -->
+    <section id="packs" class="container py-5 fade-in">
+        <h2 class="text-center section-title">Nos Prestations Sur Mesure</h2>
+        <p class="text-center mb-5">Chaque événement est unique, découvrez nos formules d'accompagnement</p>
+
+        <div class="row g-4">
+            <!-- HARMONIE -->
+            <div class="col-lg-4">
+                <div class="card pack-card p-3">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" class="card-img-top rounded" alt="Pack Harmonie - Mariage élégant">
+                    <div class="card-body">
+                        <h3 class="card-title">HARMONIE</h3>
+                        <p class="text-muted">Organisation complète de A à Z</p>
+                        <p>Le pack le plus complet pour ceux qui souhaitent confier l'intégralité de leur événement à une équipe experte.</p>
+                        <ul>
+                            <li>Choix du lieu de réception</li>
+                            <li>Conception globale du projet</li>
+                            <li>Recherche et réservation du lieu idéal</li>
+                            <li>Coordination de tous les prestataires</li>
+                            <li>Scénographie et décoration personnalisée</li>
+                            <li>Planification complète du déroulé</li>
+                            <li>Accompagnement le jour J</li>
+                        </ul>
+                        <p class="mt-3"><strong>Idéal pour :</strong> Mariages, grands anniversaires, soirées d'entreprise ou événements haut de gamme</p>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary">Demander un devis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAGIC -->
+            <div class="col-lg-4">
+                <div class="card pack-card p-3">
+                    <img src="https://images.unsplash.com/photo-1532117182044-031e7cd916ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" class="card-img-top rounded" alt="Pack Magic">
+                    <div class="card-body">
+                        <h3 class="card-title">MAGIC</h3>
+                        <p class="text-muted">Des moments intimes et personnalisés</p>
+                        <p>Conçu pour les événements familiaux et privés, où chaque instant doit être chaleureux et mémorable.</p>
+                        <ul>
+                            <li>Organisation d'événements familiaux</li>
+                            <li>Création d'une décoration sur mesure</li>
+                            <li>Gestion des prestataires essentiels</li>
+                            <li>Coordination logistique avant et pendant</li>
+                            <li>Options de personnalisation</li>
+                        </ul>
+                        <p class="mt-3"><strong>Idéal pour :</strong> Anniversaires, fiançailles, baptêmes, baby showers, soirées à thème</p>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary">Demander un devis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISION -->
+            <div class="col-lg-4">
+                <div class="card pack-card p-3">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" class="card-img-top rounded" alt="Pack Vision">
+                    <div class="card-body">
+                        <h3 class="card-title">VISION</h3>
+                        <p class="text-muted">L'événement au service de l'image de marque</p>
+                        <p>Pensé pour les entreprises souhaitant renforcer leur image, cohésion d'équipe ou relations professionnelles.</p>
+                        <ul>
+                            <li>Organisation d'événements professionnels</li>
+                            <li>Gestion complète de la logistique</li>
+                            <li>Mise en scène d'un univers adapté</li>
+                            <li>Coordination avec partenaires médias</li>
+                            <li>Options de branding et personnalisation</li>
+                        </ul>
+                        <p class="mt-3"><strong>Idéal pour :</strong> Conférences, lancements de produits, soirées d'entreprise, séminaires</p>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary">Demander un devis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÉLÉMENTS -->
+    <section id="elements" class="container py-5 fade-in">
+        <h2 class="text-center section-title">Les Éléments Essentiels</h2>
+        <p class="text-center mb-5">Chaque composant joue un rôle essentiel dans la réussite de votre événement</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="element-card">
+                    <div class="element-icon">🎨</div>
+                    <h4>Le Thème</h4>
+                    <p>Le fil conducteur de chaque projet. Il définit l'ambiance générale, le style et l'émotion que l'on souhaite transmettre.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="element-card">
+                    <div class="element-icon">🏛️</div>
+                    <h4>Le Lieu</h4>
+                    <p>Des espaces qui allient esthétique, confort et praticité. Hôtels de luxe, villas privées, jardins ou espaces urbains modernes sélectionnés avec soin.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="element-card">
+                    <div class="element-icon">🍽️</div>
+                    <h4>Le Service Traiteur</h4>
+                    <p>Expérience culinaire centrale avec des menus personnalisés, de la cuisine gastronomique aux buffets thématiques. Qualité des produits, présentation et diversité.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="element-card">
+                    <div class="element-icon">🌸</div>
+                    <h4>La Décoration</h4>
+                    <p>L'âme visuelle de l'événement. Chaque détail est pensé pour créer une ambiance immersive et élégante, avec une palette de couleurs harmonieuse.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="element-card">
+                    <div class="element-icon">🎵</div>
+                    <h4>Sonorisation & Éclairage</h4>
+                    <p>Équipements professionnels gérés par une équipe technique qualifiée. Effets lumineux, transitions sonores et jeux de scène planifiés.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="element-card">
+                    <div class="element-icon">📸</div>
+                    <h4>Photographie & Vidéographie</h4>
+                    <p>Capturer les instants forts avec des photographes et vidéastes expérimentés. Reportage, photo artistique, teaser vidéo ou film complet.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="element-card">
+                    <div class="element-icon">💄</div>
+                    <h4>La Mise en Beauté</h4>
+                    <p>Service complet de maquillage, coiffure et stylisme par des professionnels qualifiés. Mise en valeur de la personnalité dans le respect du thème.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="element-card">
+                    <div class="element-icon">🚚</div>
+                    <h4>La Logistique</h4>
+                    <p>Organisation sans faille : transport, installation, gestion du matériel et coordination des prestataires pour un déroulement fluide.</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="element-card">
+                    <div class="element-icon">✉️</div>
+                    <h4>La Carterie</h4>
+                    <p>Conception et création de tous les supports imprimés essentiels : invitations, menus, plans de table, cartes de remerciement et programmes. Chaque élément est personnalisé pour s'accorder au thème et à l'ambiance de l'événement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container py-5 fade-in">
+        <h2 class="text-center section-title">Contactez-nous</h2>
+        <p class="text-center">Nous serons ravis de donner vie à votre rêve ✨</p>
+
+        <div class="row mt-5">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4">Nos coordonnées</h5>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Antananarivo, Madagascar</p>
+                        <p><i class="fas fa-phone me-2"></i> +261 34 00 000 00</p>
+                        <p><i class="fas fa-envelope me-2"></i> contact@moodream-madagascar.com</p>
+                        <div class="mt-4">
+                            <h6>Suivez-nous</h6>
+                            <div class="d-flex mt-2">
+                                <a href="#" class="me-3 text-dark"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="#" class="me-3 text-dark"><i class="fab fa-facebook fa-lg"></i></a>
+                                <a href="#" class="me-3 text-dark"><i class="fab fa-pinterest fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <form class="mx-auto" id="contactForm">
+                    <input class="form-control mb-3" type="text" placeholder="Votre nom" required>
+                    <input class="form-control mb-3" type="email" placeholder="Votre email" required>
+                    <input class="form-control mb-3" type="text" placeholder="Type d'événement">
+                    <select class="form-control mb-3" required>
+                        <option value="">Sélectionnez un pack</option>
+                        <option value="harmonie">Pack Harmonie</option>
+                        <option value="magic">Pack Magic</option>
+                        <option value="vision">Pack Vision</option>
+                    </select>
+                    <textarea class="form-control mb-3" rows="4" placeholder="Votre message" required></textarea>
+                    <button class="btn btn-primary w-100 py-2" type="submit">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">© 2024 Moodream Madagascar – Tous droits réservés</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3">Mentions légales</a>
+                    <a href="#" class="text-white">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script>
+        // Animation de la navbar au scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animation des éléments au défilement
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observer les sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+            this.reset();
+        });
+
+        // Génération du QR Code
+        function generateQRCode() {
+            const currentUrl = window.location.href;
+            const qrCodeElement = document.getElementById('qrCode');
+            
+            // Effacer le contenu précédent
+            qrCodeElement.innerHTML = '';
+            
+            // Générer le QR Code
+            QRCode.toCanvas(qrCodeElement, currentUrl, {
+                width: 150,
+                margin: 1,
+                color: {
+                    dark: '#333333',
+                    light: '#FFFFFF'
+                }
+            }, function(error) {
+                if (error) {
+                    console.error('Erreur lors de la génération du QR Code:', error);
+                    // Fallback si la génération échoue
+                    qrCodeElement.innerHTML = `
+                        <div class="text-center">
+                            <i class="fas fa-qrcode fa-3x mb-2" style="color: #333;"></i>
+                            <p class="small">URL: ${currentUrl}</p>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // Générer le QR Code au chargement de la page
+        document.addEventListener('DOMContentLoaded', generateQRCode);
+    </script>
+</body>
+</html>
